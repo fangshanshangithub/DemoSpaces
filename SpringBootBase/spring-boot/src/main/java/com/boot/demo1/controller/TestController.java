@@ -11,8 +11,10 @@ public class TestController {
         return "helloworld";
     }
 
-    @GetMapping("/worldd")
+
+    @GetMapping("/world")
     public String helloTest() {
-        return "HELLO-TESTs";
+        return "HELLO-TE订单sss的收拾";
     }
+
 }

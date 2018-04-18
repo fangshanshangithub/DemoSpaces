@@ -31,29 +31,21 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- Spring Boot 热部署插件 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-            <scope>true</scope>
-        </dependency>
-
 
     </dependencies>
 
-    <build>
-        <plugins>
+    <!--<build>
+        &lt;!&ndash;<plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <!-- Spring Bot 热部署插件  没有该配置，devtools 不生效 -->
+                &lt;!&ndash;<configuration>
+                    &lt;!&ndash; Spring Bot 热部署插件  没有该配置，devtools 不生效 &ndash;&gt;
                     <fork>true</fork>
-                </configuration>
+                </configuration>&ndash;&gt;
             </plugin>
-        </plugins>
-    </build>
+        </plugins>&ndash;&gt;
+    </build>-->
 
 
 </project>
