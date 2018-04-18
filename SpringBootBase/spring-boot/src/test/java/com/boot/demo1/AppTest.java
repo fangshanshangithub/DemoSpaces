@@ -1,4 +1,4 @@
-package com.boot.note1;
+package com.boot.demo1;
 
 import static org.junit.Assert.assertTrue;
 
