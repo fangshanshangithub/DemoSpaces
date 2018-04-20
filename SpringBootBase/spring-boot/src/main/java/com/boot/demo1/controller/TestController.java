@@ -14,7 +14,7 @@ public class TestController {
 
     @GetMapping("/world")
     public String helloTest() {
-        return "HELLO-TE订单sss的收拾";
+        return "HELLO订单的收拾";
     }
 
 }
