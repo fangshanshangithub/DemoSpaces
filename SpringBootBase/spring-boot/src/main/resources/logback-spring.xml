@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-spring boot 默认会加载 classpath:logback-spring.xml 或者 classpath:logback-spring.groovy。
+spring boot 默认会加载 classpath:logback-config.xml 或者 classpath:logback-spring.groovy。
 如需要自定义文件名称，在 application.properties 中配置 logging.config 选项即可。
 -->
 <configuration>
