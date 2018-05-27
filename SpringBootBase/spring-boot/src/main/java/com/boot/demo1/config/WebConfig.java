@@ -12,6 +12,7 @@ import org.springframework.core.env.Environment;
 @Configuration
 public class WebConfig {
 
+    //@Value("${ds.userName}是是是") // 这种写法是赋值
     @Value("${ds.userName}")
     private String userName;
 
@@ -19,8 +20,8 @@ public class WebConfig {
     private Environment environment;
 
     public void show() {
-        System.out.println("ds.userName:" + this.userName);
-        System.out.println("ds.password:" + this.environment.getProperty("ds.password"));
+        System.out.println("#### ds.userName:" + this.userName);
+        System.out.println("#### ds.password:" + this.environment.getProperty("ds.password"));
     }
 
 }
