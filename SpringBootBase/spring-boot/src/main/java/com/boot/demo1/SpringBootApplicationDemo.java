@@ -1,5 +1,6 @@
 package com.boot.demo1;
 
+import com.boot.demo1.config.DataSourceProperties;
 import com.boot.demo1.config.WebConfig;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +17,8 @@ public class SpringBootApplicationDemo{
         /* 配置文件的读取方式*/
         ConfigurableApplicationContext context = SpringApplication.run(SpringBootApplicationDemo.class, args);
         context.getBean(WebConfig.class).show();
+
+        context.getBean(DataSourceProperties.class).show();
 
         //Spring Boot 启动方式一
         //SpringApplication.run(SpringBootApplicationDemo.class);
