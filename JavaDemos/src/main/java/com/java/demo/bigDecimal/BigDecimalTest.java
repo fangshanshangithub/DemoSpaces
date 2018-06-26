@@ -20,7 +20,7 @@ public class BigDecimalTest {
             BigDecimal b2 = new BigDecimal(content);
 
             int i = b2.compareTo(b1);
-            if (i == 0) {
+            if (i == 0) { // 值相等
                 System.out.println(b2 + " = " + b1.toString());
             }
             if (i == 1) {
