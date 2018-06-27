@@ -31,7 +31,7 @@ public class GenericClassTest {
         /*  泛型的参数 不能是接口 */
 
         /*  */
-        GenericClass<CAbstractClass> abstractClass = new GenericClass<>(new CAbstractClass("sfdsfsd"))
+
 
     }
 
