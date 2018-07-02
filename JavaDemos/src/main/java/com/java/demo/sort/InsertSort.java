@@ -3,6 +3,7 @@ package com.java.demo.sort;
 import java.util.Arrays;
 
 /**
+ * 插入排序
  * @Auther: FangSS
  * @Date: 2018/5/11 0011 11:25
  * @Description:

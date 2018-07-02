@@ -9,12 +9,19 @@ public class SortMainTest {
 
     public static void main(String[] args) {
         Integer[] intArrary = {12,3,25,225,156,77,22,7,90,54};
+        //InsertSort.sort(intArrary);
+
+        System.out.println("==================================");
+        // 冒泡排序
+        //BubbleSort.sort(intArrary);
+
+        System.out.println("==================================");
+        // 选择排序[主要是从为排序的数据集中选择最大或最小的数据]
         InsertSort.sort(intArrary);
 
         System.out.println("==================================");
-        /*  冒泡排序测试  */
-        DubbleSort.sort(intArrary);
-        DubbleSort.sort_01(intArrary);
+
+        System.out.println("==================================");
 
     }
 
