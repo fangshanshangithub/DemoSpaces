@@ -34,6 +34,27 @@ public class HtmlReaderUntil {
     }
 
     /**
+     *  从css文件中获取图片地址.
+     * @param contents 内容
+     * @return List
+     */
+    public static List<String> getMessageFromCSS(String contents) {
+        List<String> list = new ArrayList<String>();
+        String reg = "(url\\s*\\(\\s*['\"]?)(.*?)(['\"]?\\s*\\))";
+
+        Pattern pattern = Pattern.compile(reg);
+        Matcher mathcher = pattern.matcher(contents);
+
+        // 获取匹配的组数并取出对应的值
+        while (mathcher.find()) {
+            String r = mathcher.group(2);
+            list.add(r);
+        }
+
+        return list;
+    }
+
+    /**
      * 删除指定标签中的内容.
      * @param htmlContent 网页内容源码
      * @return String 删除注释之后的源码内容

@@ -15,16 +15,17 @@ import java.util.List;
 
 public class HtmlReadLabelAttrUtilTest {
     public static void main(String[] args) {
-        String path = "/Data/Html/index.html";
+        String path = "/Data/Html/aa.css";
         String htmlContent = readFileContent(path);
        // System.out.println("文件内容" + htmlContent);
 
-        List<String> list = HtmlReaderUntil.getAttrFromLab(htmlContent,"div", "id");
+       //List<String> list = HtmlReaderUntil.getAttrFromLab(htmlContent,"img", "src");
+        List<String> list = HtmlReaderUntil.getMessageFromCSS(htmlContent);
         for(String lt : list){
             System.out.println("##  ：" + lt);
         }
         System.out.println("=================");
-        String stri = HtmlReaderUntil.deleteHtmlAnnotation(htmlContent);
+
 
 
     }
