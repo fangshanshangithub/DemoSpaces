@@ -9,6 +9,12 @@ import java.util.HashMap;
 public class HashMaps {
     public static void main(String[] args) {
         HashMap  hash = new HashMap();
+        hash.put(null,"sdfsfds");
+        System.out.println(hash.toString());
+
+        hash.put("a", null);
+        System.out.println(hash.toString());
+
     }
 
 
