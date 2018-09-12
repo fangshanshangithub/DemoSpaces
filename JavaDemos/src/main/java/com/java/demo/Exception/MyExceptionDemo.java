@@ -8,19 +8,24 @@ package com.java.demo.Exception;
 public class MyExceptionDemo {
 
     public static void main(String[] args) {
+        boolean flag = true;
         for (int i = 3; i > -4; i--) {
             System.out.println("MyExceptionDemo.main:" + i);
             try {
                 throwException_01(i);
             } catch (Exception e) {
                 System.out.println("捕获到异常了，跳出循环");
-              //  break;
+                flag = false;
+                break;
             }
-
 
         }
 
+        System.out.println("flag 的值为：" + flag);
+
     }
+
+
 
 
     /**
