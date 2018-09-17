@@ -1,6 +1,8 @@
 package com.http.proxy.httpproxydemo.controller;
 
 import com.http.proxy.httpproxydemo.utils.HttpClientHelper;
+import com.http.proxy.httpproxydemo.utils.HttpsUtils;
+import org.apache.http.HttpEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +23,9 @@ public class HttpProxyController {
     private HttpClientHelper httpClientHelper;
 
     @RequestMapping("/**")
-    public String proxy(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public String proxy(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Map<String, String> info  = getHeadersInfo(request);
-
-        String responStr = httpClientHelper.doGet("https://blog.csdn.net/past__time/article/details/81513535");
+        String responStr = HttpsUtils.post("https://blog.csdn.net/past__time/article/details/81513535", new HashMap<>(),new HashMap<>(), null);
         PrintWriter pw = response.getWriter();
         pw.write(responStr);
         pw.flush();
