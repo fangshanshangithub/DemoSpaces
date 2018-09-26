@@ -1,3 +1,4 @@
+/*
 package com.http.proxy.httpproxydemo.config;
 
 import org.springframework.context.annotation.Configuration;
@@ -65,4 +66,4 @@ public class SpringInterceptor extends WebMvcConfigurationSupport {
         }
     }
 
-}
+}*/
