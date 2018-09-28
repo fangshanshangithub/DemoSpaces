@@ -23,7 +23,11 @@ class Thread1 extends Thread {
         for (int i = 0; i < 5; i++) {
             System.out.println(name + "运行  :  " + i);
             try {
-                sleep((int) Math.random() * 10);
+                //sleep((int) Math.random() * 10);
+                if (i == 3) {
+                    System.out.println(name + "我开始sleep()");
+                    sleep(5000);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

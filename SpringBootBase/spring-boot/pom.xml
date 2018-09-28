@@ -34,18 +34,18 @@
 
     </dependencies>
 
-    <!--<build>
-        &lt;!&ndash;<plugins>
+    <build>
+        <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                &lt;!&ndash;<configuration>
-                    &lt;!&ndash; Spring Bot 热部署插件  没有该配置，devtools 不生效 &ndash;&gt;
+                <configuration>
+                    <!-- Spring Bot 热部署插件  没有该配置，devtools 不生效 -->
                     <fork>true</fork>
-                </configuration>&ndash;&gt;
+                </configuration>
             </plugin>
-        </plugins>&ndash;&gt;
-    </build>-->
+        </plugins>
+    </build>
 
 
 </project>
