@@ -1,6 +1,8 @@
 package com.http.proxy.httpproxydemo.utils;
 import org.apache.http.*;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
@@ -17,6 +19,7 @@ import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -131,5 +134,46 @@ public class HttpsUtils {
             builder.append("response content:" + responseString.replace("\r\n", ""));
         }
         return builder.toString();
+    }
+
+
+    public static String get(String  url, HttpServletResponse response) {
+        CloseableHttpClient httpCilent2 = HttpClients.createDefault();
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(5000)   //设置连接超时时间
+                .setConnectionRequestTimeout(5000) // 设置请求超时时间
+                .setSocketTimeout(5000)
+                .setRedirectsEnabled(false)//默认允许自动重定向
+                .build();
+        HttpGet httpGet2 = new HttpGet(url);
+        httpGet2.setConfig(requestConfig);
+        String srtResult = "";
+        try {
+            HttpResponse httpResponse = httpCilent2.execute(httpGet2);
+            if(httpResponse.getStatusLine().getStatusCode() == 200){
+                response.reset();
+                srtResult = EntityUtils.toString(httpResponse.getEntity());//获得返回的结果
+                Header[] headers = httpResponse.getAllHeaders();
+                for(int i=0;i<headers.length;i++) {
+                    System.out.println(headers[i].getName()+" : "+ headers[i].getValue());
+                    response.setHeader(headers[i].getName(), headers[i].getValue());
+                }
+
+            }else if(httpResponse.getStatusLine().getStatusCode() == 400){
+                //..........
+            }else if(httpResponse.getStatusLine().getStatusCode() == 500){
+                //.............
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                httpCilent2.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return srtResult;
     }
 }
