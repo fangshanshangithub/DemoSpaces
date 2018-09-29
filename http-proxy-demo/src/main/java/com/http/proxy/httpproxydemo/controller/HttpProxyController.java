@@ -50,14 +50,6 @@ public class HttpProxyController {
         out.close();
     }
 
-    @RequestMapping("/send")
-    public void sendRquest(HttpServletRequest request, HttpServletResponse response) {
-        String url = "https://blog.artron.net/image/newblog/css/common.css";
-
-
-    }
-
-
     private Map<String, String> getHeadersInfo(HttpServletRequest request) {
         Map<String, String> map = new HashMap<String, String>();
         Enumeration headerNames = request.getHeaderNames();
