@@ -1,0 +1,10 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>freemark</title>
+        <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <h1>Hello ${name} from resource freemark!</h1>
+    </body>
+</html>

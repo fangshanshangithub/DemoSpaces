@@ -1,0 +1,23 @@
+spring:
+  # thymeleaf 模版配置
+  thymeleaf:
+    # 设置页面缓存 【正式环境去掉】*****
+    cache: false
+    # ***** 坑注意： classpath路径必须以"/" 结尾，否则提示路径错误
+    prefix: classpath:/templates/thymeleaf/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+
+  mvc:
+    # 设置静态文件路径，js,css等
+    static-path-pattern: /static/**
+    # spring boot 自带的浏览器标签页的小叶子图标，false：标识自己定义一个[一定不能少，要不上线有风险]，
+    #  在static文件夹中添加favicon.ico可直接默认替换，也可在html文件中自己指定
+    favicon:
+      enabled: true
+
+
+
+
+
