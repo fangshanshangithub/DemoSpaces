@@ -17,6 +17,10 @@ spring:
     favicon:
       enabled: true
 
+# 定时任务配置--  定时任务实现方法(二)
+jobs:
+  fixedDelay: 5000
+  cron: 0/5 * *  * * ?
 
 
 

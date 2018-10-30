@@ -29,7 +29,7 @@ public class MyMvcConfig extends WebMvcConfigurationSupport {
 
 
     /**
-     * 自定义的路径映射
+     * 自定义的路径映射[默认主页面]
      * @param registry
      */
     @Override
