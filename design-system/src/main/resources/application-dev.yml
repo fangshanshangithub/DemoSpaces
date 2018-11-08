@@ -1,0 +1,83 @@
+#>>>>>>>>>>>>>>>>>>>>>>> thymeleaf 配置 >>>>>>>>>>>>>>>>>>>>>>>
+spring:
+  thymeleaf:
+    #配置前缀
+    prefix: classpath:/templates/
+    #配置后缀
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet.content-type: text/html
+    #<<<注>>>>>是否开启缓存,如果热部署可以及时更新页面修改【开发时方便查看最新页面效果】【线上环境true或不配置】
+    cache: false
+
+#<<<<<<<<<<<<<<<<<<<<<<<<<< thymeleaf 配置  end <<<<<<<<<<<<<<<<
+
+
+#>>>>>>>>>>>>>>>>>>>>>>> 数据库配置 druid 数据库连接池 >>>>>>>>>>>>>>>>>>>>>>>
+
+
+#<<<<<<<<<<<<<<<<<<<<<<<<<< 数据库配置  end <<<<<<<<<<<<<<<<
+#  datasource: # 没有集成druid数据库配置
+#    url: jdbc:mysql://localhost:3306/desigen-system?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+#    username: root
+#    password: root
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/desigen-system?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+      username: root
+      password: root
+      initial-size: 5  # 初始化大小
+      min-idle: 5  # 最小
+      max-active: 100  # 最大
+      max-wait: 60000  # 连接超时时间
+      time-between-eviction-runs-millis: 60000  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 300000  # 指定一个空闲连接最少空闲多久后可被清除，单位是毫秒
+      validationQuery: select 'x'
+      test-while-idle: true  # 当连接空闲时，是否执行连接测试
+      test-on-borrow: false  # 当从连接池借用连接时，是否测试该连接
+      test-on-return: false  # 在连接归还到连接池时是否测试该连接
+      filters: config,wall,stat  # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      maxOpenPreparedStatements: 20
+      connectionProperties: druid.stat.slowSqlMillis=200;druid.stat.logSlowSql=true;config.decrypt=true
+# 如果想看到mybatis日志需要做如下配置
+#logging:
+#  level: com.design.system.mapper=DEBUG
+########## Mybatis 自身配置 ##########
+mybatis:
+  type-aliases-package:
+  configuration:
+    # 驼峰命名规范 如：数据库字段是  order_id 那么 实体字段就要写成 orderId
+    map-underscore-to-camel-case: true
+
+########## 通用Mapper ##########
+mapper:
+  # 主键自增回写方法,默认值MYSQL,详细说明请看文档
+  identity: MYSQL
+  #通用mapper的所在接口名称
+  mappers: com.design.system.mapper.CommonMapper
+  # 设置 insert 和 update 中，是否判断字符串类型!=''
+  not-empty: true
+  # 枚举按简单类型处理
+  enum-as-simple-type: true
+########## 分页插件 ##########
+pagehelper:
+  helper-dialect: mysql
+  params: count=countSql
+  reasonable: false
+  support-methods-arguments: true
+
+#>>>>>>>>>>>>>>>>>>>>>>> 热部署 配置 >>>>>>>>>>>>>>>>>>>>>>>
+#热部署生效
+  devtools:
+    restart:
+      enabled: true
+      #设置重启的目录
+      additional-paths: src/main/java
+      #classpath目录下的WEB-INF文件夹内容修改不重启
+      #spring.devtools.restart.exclude: WEB-INF/**
+#<<<<<<<<<<<<<<<<<<<<<<<<<< 热部署 配置  end <<<<<<<<<<<<<<<<
+
+
