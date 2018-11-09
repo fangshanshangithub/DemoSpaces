@@ -11,7 +11,7 @@
         <property name="endingDelimiter" value="`"/>
 
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.design.system.mapper.CommonMapper"/>
+            <property name="mappers" value="com.design.system.helper.CommonMapper"/>
         </plugin>
 
         <jdbcConnection driverClass="${spring.datasource.driverClassName}"
